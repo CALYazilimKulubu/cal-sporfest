@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÇAL SporFest 2026</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+    color: #333;
+}
+
+/* NAVBAR */
+nav {
+    background: #111;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: #00d4ff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00d4ff;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)),
+    url('https://images.unsplash.com/photo-1517649763962-0c623066013b');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 50px;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.hero button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    background: #00d4ff;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ETKİNLİKLER */
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    flex: 1 1 300px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* GALERİ */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* DUYURULAR */
+.announcement {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 5px solid #00d4ff;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+    .hero h2 {
+        font-size: 32px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+    <h1>ÇAL SPORFEST</h1>
+    <ul>
+        <li><a href="#etkinlikler">Etkinlikler</a></li>
+        <li><a href="#duyurular">Duyurular</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <div>
+        <h2>ÇAL SporFest 2026</h2>
+        <p>Enerji, rekabet ve eğlence burada!</p>
+        <button onclick="scrollToSection()">Keşfet</button>
+    </div>
+</div>
+
+<section id="etkinlikler">
+    <h2 class="section-title">Etkinlikler</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Futbol Turnuvası</h3>
+            <p>Okulun en iyileri sahada!</p>
+        </div>
+        <div class="card">
+            <h3>Basketbol</h3>
+            <p>Okul genç erkekler basketbol takımımız</p>
+        </div>
+        <div class="card">
+            <h3>Voleybol</h3>
+            <p>Takımını kur ve katıl!</p>
+        </div>
+    </div>
+</section>
+
+<section id="duyurular">
+    <h2 class="section-title">Duyurular</h2>
+    <div class="announcement">📢 
+Okulumuzda 14-16 Mayıs 2025 tarihleri arasında Sporfest 2025 düzenlenmiştir. Organizasyonun gerçekleşmesine katkıda bulunan herkese teşekkür ederiz.</div>
+    <div class="announcement">📅 14-16 Mayıs 2026</div>
+    <div class="announcement">🏆 Çeşitli Turnuvalar</div>
+</section>
+
+<section id="galeri">
+    <h2 class="section-title">Galeri</h2>
+    <div class="gallery">
+        <img src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110608_10.jpg">
+        <img src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110632_7.jpg">
+        <img src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110637_9.jpg">
+        <img src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110623_4.jpg">
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Çemberlitaş SporFest</p>
+</footer>
+
+<script>
+function scrollToSection(){
+    document.getElementById("etkinlikler").scrollIntoView({behavior: "smooth"});
+}
+</script>
+
+</body>
+</html>
