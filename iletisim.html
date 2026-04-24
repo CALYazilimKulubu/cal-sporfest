@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim & Başvuru | Çemberlitaş Sporfest '26</title>
+    <link rel="icon" type="image/png" href="sporfest.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-dark: #001943;
+            --primary-light: #96d6e3;
+            --accent-gray: #637791;
+            --text-white: #f5f7fa;
+            --bg-light: #f5f7fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-light);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: transparent; 
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            box-shadow: none;
+        }
+
+        .navbar.scrolled {
+            background: var(--primary-dark); 
+            padding: 12px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar-logo h1 {
+            color: var(--primary-light);
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .navbar-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+
+        .navbar-link:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-btn {
+            background: var(--primary-light);
+            color: var(--primary-dark) !important;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold !important;
+        }
+
+
+        .contact-header {
+            height: 50vh; 
+            background: linear-gradient(135deg, rgba(0,25,67,0.85) 0%, rgba(0,0,0,0.4) 100%),
+                        url('image/etkinlik.jpeg'); /* Ana sayfadaki görsel */
+            background-size: cover;
+            background-position: center 72%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .contact-header h2 {
+            font-size: 48px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .special-font { color: var(--primary-light); }
+
+        .contact-wrapper {
+            padding: 60px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1300px;
+            margin: -50px auto 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .info-card, .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            border-bottom: 4px solid var(--primary-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3, .form-card h3 {
+            font-size: 24px;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .info-card h3::after, .form-card h3::after {
+            content: '';
+            width: 40px; height: 3px;
+            background: var(--primary-light);
+            display: block; margin-top: 8px;
+        }
+
+        .social-list { display: flex; flex-direction: column; gap: 15px; }
+        .social-link {
+            display: flex; align-items: center;
+            padding: 15px; border-radius: 10px;
+            text-decoration: none; color: white;
+            font-weight: bold; transition: 0.3s;
+        }
+        .tiktok { background: #000; }
+        .instagram { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+        .linkedin { background: #0077b5; }
+        .email-info { background: var(--primary-dark); }
+        .social-link:hover { transform: translateX(10px); filter: brightness(1.1); }
+        .social-link i { margin-right: 15px; font-size: 20px; }
+
+        /* FORM */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary-dark); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 10px; outline: none; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary-light); }
+        .btn-submit {
+            width: 100%; padding: 15px; background: var(--primary-light); color: var(--primary-dark);
+            border: none; border-radius: 50px; font-weight: bold; font-size: 16px;
+            cursor: pointer; transition: 0.3s;
+        }
+        .btn-submit:hover { background: var(--primary-dark); color: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media(max-width: 768px){
+            .navbar-menu { display: none; }
+            .contact-header h2 { font-size: 32px; }
+            .contact-wrapper { margin-top: 20px; padding: 20px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <h1>Çemberlitaş <span class="special-font">Sporfest</span></h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="navbar-link">Ana Sayfa</a></li>
+                <li><a href="index.html#etkinlikler" class="navbar-link">Etkinlikler</a></li>
+                <li><a href="index.html#duyurular" class="navbar-link">Duyurular</a></li>
+                <li><a href="index.html#venue" class="navbar-link">Konum</a></li>
+                <li><a href="iletisim.html" class="navbar-link nav-btn">İletişim & Başvuru</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="contact-header">
+        <h2>Bize <span class="special-font">Ulaşın</span></h2>
+    </div>
+
+    <div class="contact-wrapper">
+        <div class="info-card">
+            <h3>Bizi Takip Edin</h3>
+            <p style="margin-bottom: 25px; color: #666;">En güncel duyurular ve maç sonuçları için sosyal medya hesaplarımızı takip edebilirsiniz.</p>
+            
+            <div class="social-list">
+                <a href="https://www.tiktok.com/@cemberlitassporfest" target="_blank" class="social-link tiktok">
+                    <i class="fab fa-tiktok"></i> TikTok'ta Takip Et
+                </a>
+                <a href="https://www.instagram.com/cemberlitasporfest/" target="_blank" class="social-link instagram">
+                    <i class="fab fa-instagram"></i> Instagram'da Takip Et
+                </a>
+                <a href="https://www.linkedin.com/company/cemberlitasportfest/" target="_blank" class="social-link linkedin">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn Bağlantısı
+                </a>
+                <div class="social-link email-info">
+                    <i class="fas fa-envelope"></i> cemberlitasporfest@gmail.com
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3 style="font-size: 20px;">Lokasyon</h3>
+                <p style="color: #666; margin-top: 10px; font-size: 14px;">
+                    Emin Sinan, Yeniçeriler Cad. & Evkaf Sok.,<br>
+                    Çemberlitaş, 34126 Fatih/İstanbul
+                </p>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <h3>Turnuva Başvurusu</h3>
+            <form action="https://formspree.io/f/xkokyzzd" method="POST">
+                <div class="form-group">
+                    <label>Adınız Soyadınız</label>
+                    <input type="text" name="name" placeholder="Örn: Ahmet Yılmaz" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Sınıfınız</label>
+                    <input type="text" name="class" placeholder="Örn: 11-B" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Katılmak İstediğiniz Branş</label>
+                    <select name="branch">
+                        <option value="futbol">Futbol Turnuvası</option>
+                        <option value="basketbol">Basketbol (3x3)</option>
+                        <option value="voleybol">Voleybol Karışık</option>
+                        <option value="diger">Diğer / Genel Soru</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Mesajınız veya Takım Bilgisi</label>
+                    <textarea name="message" rows="5" placeholder="Takım arkadaşlarınızı veya sormak istediklerinizi yazın..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Başvuruyu Tamamla</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Çemberlitaş Sporfest. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll efekti
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
