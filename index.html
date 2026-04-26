@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Çemberlitaş Sporfest '26</title>
-    <link rel="icon" type="image/png" href="sporfest.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="image/sporfest.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+
     <style>
         :root {
             --primary-dark: #001943;
@@ -30,23 +37,25 @@
         }
 
 
-.navbar {
-    background: transparent; 
-    padding: 20px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.4s ease;
-    box-shadow: none; 
-}
+
+        .navbar {
+            background: transparent;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            box-shadow: none;
+        }
 
 
-.navbar.scrolled {
-    background: var(--primary-dark);
-    padding: 10px 0; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
+        .navbar.scrolled {
+            background: var(--primary-dark);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
         .navbar-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -94,11 +103,10 @@
             transform: translateY(-2px);
         }
 
-
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(0,25,67,0.9) 0%, rgba(0,0,0,0.4) 100%),
-                        url('image/etkinlik.jpeg'); /* Görsel yolu güncellendi */
+            background: linear-gradient(135deg, rgba(0, 25, 67, 0.9) 0%, rgba(0, 0, 0, 0.4) 100%),
+                url('image/etkinlik.jpeg');
             background-size: cover;
             background-position: center 5%;
             display: flex;
@@ -107,16 +115,16 @@
             color: white;
             text-align: center;
             padding-top: 60px;
-            
+
         }
 
         .hero-content h2 {
             font-size: 60px;
             margin-bottom: 20px;
             animation: fadeInUp 1s ease;
+            color: white;
+            font-family: 'Rock Salt', cursive;
         }
-
-        .special-font { color: var(--primary-light); }
 
         .countdown-container {
             display: flex;
@@ -127,7 +135,7 @@
         }
 
         .countdown-item {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             padding: 15px;
             border-radius: 10px;
             min-width: 90px;
@@ -142,7 +150,10 @@
             color: var(--primary-light);
         }
 
-        .countdown-label { font-size: 12px; text-transform: uppercase; }
+        .countdown-label {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
 
         .btn-primary {
             padding: 12px 35px;
@@ -160,10 +171,13 @@
         .btn-primary:hover {
             transform: scale(1.05);
             background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        section { padding: 80px 10%; }
+        section {
+            padding: 80px 10%;
+        }
+
         .section-title {
             text-align: center;
             font-size: 36px;
@@ -193,12 +207,12 @@
             border-radius: 15px;
             transition: 0.4s;
             border-bottom: 4px solid var(--primary-light);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
 
@@ -214,16 +228,25 @@
             align-items: center;
         }
 
-        .venue-text-wrapper { flex: 1; min-width: 300px; }
-        .venue-map {
-    width: 100%;
-    border-radius: 15px; 
-    overflow: hidden;    
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
-}
-        .venue-map iframe { width: 100%; height: 350px; border: 0; }
+        .venue-text-wrapper {
+            flex: 1;
+            min-width: 300px;
+        }
 
- 
+        .venue-map {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .venue-map iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+        }
+
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -239,9 +262,17 @@
             transition: 0.3s;
         }
 
-        .gallery img:hover { transform: scale(1.03); filter: brightness(1.1); }
+        .gallery img:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1);
+        }
 
-        /* FOOTER */
+        .special-font {
+            font-family: 'Rock Salt', cursive;
+            font-size: 0.8em;
+            color: var(--primary-light);
+        }
+
         footer {
             background: var(--primary-dark);
             color: white;
@@ -249,26 +280,154 @@
             padding: 40px 20px;
         }
 
-        /* ANIMATIONS */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .navbar-logo a {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
         }
 
-        @media(max-width: 768px){
-            .hero h2 { font-size: 36px; }
-            .navbar-menu { display: none; }
+        .navbar-logo a:hover {
+            transform: scale(1.02);
+        }
+
+        .navbar-logo h1 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            line-height: 1;
+        }
+
+        @media (max-width: 480px) {
+            .navbar-logo h1 {
+                display: none;
+            }
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.4s;
+            border-bottom: 4px solid var(--primary-light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 300px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width: 768px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-light);
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        .navbar.scrolled .bar {
+            background-color: white;
+        }
+
+        @media(max-width: 768px) {
+            .menu-toggle {
+                display: flex !important;
+            }
+
+            .navbar-menu {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--primary-dark);
+                padding: 100px 30px;
+                transition: 0.4s ease-in-out;
+                box-shadow: -10px 0 20px rgba(0, 0, 0, 0.4);
+            }
+
+            .navbar-menu.active {
+                right: 0;
+            }
+        }
+
+        #duyurular .card {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 20px;
+            display: block;
+            padding: 25px 40px;
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        #duyurular .card:hover {
+            transform: translateX(10px);
+        }
+
+        @media (max-width: 768px) {
+            #duyurular .card {
+                padding: 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 
 <body>
-
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
-                <h1>Çemberlitaş <span class="special-font">Sporfest</span></h1>
+                <a href="index.html" style="display: flex; align-items: center; text-decoration: none; gap: 12px;">
+                    <img src="image/sporfest.jpg" alt="Kulüp Logosu"
+                        style="height: 45px; border-radius: 50%; border: 2px solid var(--primary-light);" />
+                    <h1><span class="special-font">Çemberlitas </span><span class="special-font">Sporfest</span></h1>
+                </a>
             </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
             <ul class="navbar-menu">
                 <li><a href="#home" class="navbar-link">Ana Sayfa</a></li>
                 <li><a href="#etkinlikler" class="navbar-link">Etkinlikler</a></li>
@@ -282,9 +441,9 @@
 
     <div class="hero" id="home">
         <div class="hero-content">
-            <h2>Sporfest <span class="special-font">'26</span> Başlıyor</h2>
+            <h2>Sporfest<span class="special-font"> '26 </span>Başlıyor</h2>
             <p>Enerji, rekabet ve eğlenceye hazır mısınız?</p>
-            
+
             <div class="countdown-container">
                 <div class="countdown-item">
                     <span class="countdown-value" id="days">00</span>
@@ -312,7 +471,7 @@
         <h2 class="section-title">Etkinlikler</h2>
         <div class="cards">
             <div class="card">
-                <h3>Futbol Turnuvası</h3>
+                <h3>Futbol</h3>
                 <p>Okulun en iyileri sahada! Kıyasıya rekabet ve şampiyonluk mücadelesi.</p>
             </div>
             <div class="card">
@@ -323,6 +482,14 @@
                 <h3>Voleybol</h3>
                 <p>Takımını kur, file önünde devleş! Katılım için başvurular açıldı.</p>
             </div>
+            <div class="card">
+                <h3>Badminton</h3>
+                <p>Hafif ama hızlı! Raketini kap, arkadaşlarınla keyifli maçlara katıl.</p>
+            </div>
+            <div class="card">
+                <h3>Masa Tenisi </h3>
+                <p>Hızlı, eğlenceli ve çekişmeli! Masaya gel, reflekslerini konuştur.</p>
+            </div>
         </div>
     </section>
 
@@ -330,57 +497,68 @@
         <div class="venue-container">
             <div class="venue-text-wrapper">
                 <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Etkinlik Alanı</h2>
-                <p><i class="fas fa-school" style="color: var(--accent-gray);"></i> <strong>Çemberlitaş Anadolu Lisesi</strong></p>
-                <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gray);"></i> Emin Sinan, Yeniçeriler Cad. & Evkaf Sok., Çemberlitaş, 34126 Fatih/İstanbul</p>
+                <p><i class="fas fa-school" style="color: var(--accent-gray);"></i> <strong>Çemberlitaş Anadolu
+                        Lisesi</strong></p>
+                <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gray);"></i> Emin Sinan, Yeniçeriler Cad.
+                    & Evkaf Sok., Çemberlitaş, 34126 Fatih/İstanbul</p>
                 <br>
                 <p>Tüm turnuvalar ve ana etkinlikler okul kampüsümüzde gerçekleştirilecektir.</p>
             </div>
             <div class="venue-map">
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.518129759367!2d28.969848576553835!3d41.00299691974753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9919f96b65d%3A0x6739665f80b91295!2zw4dlbWJlcmxpdGHFnyBBbmFkb2x1IExpc2VzaQ!5e0!3m2!1str!2str!4v1715421000000!5m2!1str!2str" 
-        width="100%" 
-        height="350" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.518129759367!2d28.969848576553835!3d41.00299691974753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9919f96b65d%3A0x6739665f80b91295!2zw4dlbWJlcmxpdGHFnyBBbmFkb2x1IExpc2VzaQ!5e0!3m2!1str!2str!4v1715421000000!5m2!1str!2str"
+                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
+    </div>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
     </div>
 
     <section id="duyurular">
         <h2 class="section-title">Duyurular</h2>
         <div class="card" style="margin-bottom: 15px; border-left: 5px solid var(--primary-light);">
-            <p>📢 <strong>Geçmiş Etkinlik:</strong> Okulumuzda 14-16 Mayıs 2025 tarihleri arasında Sporfest '25 başarıyla düzenlenmiştir.</p>
+            <p>📢 <strong>Geçmiş Etkinlik:</strong> Okulumuzda 14-16 Mayıs 2025 tarihleri arasında Sporfest '25
+                başarıyla düzenlenmiştir.</p>
         </div>
         <div class="card" style="margin-bottom: 15px; border-left: 5px solid var(--primary-light);">
-            <p>📅 <strong>Gelecek Tarih:</strong> Sporfest '26, 12-15 Mayıs 2026 tarihleri arasında gerçekleşecektir.</p>
+            <p>📅 <strong>Gelecek Tarih:</strong> Sporfest '26, 12-15 Mayıs 2026 tarihleri arasında gerçekleşecektir.
+            </p>
         </div>
     </section>
 
     <section id="galeri">
         <h2 class="section-title">Galeri</h2>
         <div class="gallery">
-            <img src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110608_10.jpg">
-            <img src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110632_7.jpg">
-            <img src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110637_9.jpg">
-            <img src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110623_4.jpg">
+            <img
+                src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110608_10.jpg">
+            <img
+                src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110632_7.jpg">
+            <img
+                src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110637_9.jpg">
+            <img
+                src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110623_4.jpg">
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Çemberlitaş Sporfest. Tüm Hakları Saklıdır.</p>
+        <p>© 2026 Çemberlitaş Sporfest. Tüm Hakları Saklıdır. Çemberlitaş Anadolu Lisesi Yazılım Kulübü tarafından
+            yapılmıştır.</p>
     </footer>
 
     <script>
-        function scrollToSection(id){
-            document.getElementById(id).scrollIntoView({behavior: "smooth"});
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: "smooth" });
         }
 
         const targetDate = new Date("May 12, 2026 09:00:00").getTime();
 
-        const countdown = setInterval(function() {
+        const countdown = setInterval(function () {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
@@ -400,15 +578,32 @@
             }
         }, 1000);
 
-        window.addEventListener('scroll', function() {
-    const nav = document.querySelector('.navbar');
-    if (window.scrollY > 50) { // 50 piksel aşağı inince
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        const menu = document.querySelector('#mobile-menu');
+        const menuLinks = document.querySelector('.navbar-menu');
+        const navLinks = document.querySelectorAll('.navbar-link');
+
+        menu.addEventListener('click', function () {
+            menu.classList.toggle('is-active');
+            menuLinks.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('is-active');
+                menuLinks.classList.remove('active');
+            });
+        });
     </script>
 
 </body>
+
 </html>
