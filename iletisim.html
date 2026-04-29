@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim & Başvuru | Çemberlitaş Sporfest '26</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,343 +15,6 @@
     <link rel="icon" type="image/png" href="image/sporfest.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary-dark: #001943;
-            --primary-light: #96d6e3;
-            --accent-gray: #637791;
-            --text-white: #f5f7fa;
-            --bg-light: #f5f7fa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: var(--bg-light);
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .navbar {
-            background: transparent;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.4s ease;
-        }
-
-        .navbar.scrolled {
-            background: var(--primary-dark);
-            padding: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .navbar-logo a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-logo a:hover {
-            transform: scale(1.02);
-        }
-
-        .navbar-logo h1 {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            line-height: 1;
-            color: var(--primary-light);
-            font-size: 24px;
-            letter-spacing: 2px;
-        }
-
-        .navbar-menu {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-            align-items: center;
-        }
-
-        .navbar-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-            font-size: 14px;
-        }
-
-        .navbar-link:hover {
-            color: var(--primary-light);
-        }
-
-        .nav-btn {
-            background: var(--primary-light);
-            color: var(--primary-dark) !important;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: bold !important;
-        }
-
-        .nav-btn:hover {
-            background: white;
-            transform: translateY(-2px);
-        }
-
-        .special-font {
-            font-family: 'Rock Salt', cursive;
-            font-size: 0.8em;
-            color: var(--primary-light);
-        }
-
-        .contact-header {
-            height: 50vh;
-            background: linear-gradient(135deg, rgba(0, 25, 67, 0.85) 0%, rgba(0, 0, 0, 0.4) 100%),
-                url('image/etkinlik.jpeg');
-            background-size: cover;
-            background-position: center 60%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding-top: 80px;
-        }
-
-        .contact-header h2 {
-            font-size: 48px;
-            font-family: 'Rock Salt', cursive;
-            animation: fadeInUp 1s ease;
-        }
-
-        .contact-wrapper {
-            padding: 60px 10%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            max-width: 1300px;
-            margin: -50px auto 0;
-            position: relative;
-            z-index: 10;
-        }
-
-        .info-card,
-        .form-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            border-bottom: 4px solid var(--primary-light);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .info-card h3,
-        .form-card h3 {
-            font-size: 24px;
-            color: var(--primary-dark);
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .info-card h3::after,
-        .form-card h3::after {
-            content: '';
-            width: 40px;
-            height: 3px;
-            background: var(--primary-light);
-            display: block;
-            margin-top: 8px;
-        }
-
-        .social-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .tiktok {
-            background: #000;
-        }
-
-        .instagram {
-            background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
-        }
-
-        .linkedin {
-            background: #0077b5;
-        }
-
-        .email-info {
-            background: var(--primary-dark);
-        }
-
-        .social-link:hover {
-            transform: translateX(10px);
-            filter: brightness(1.1);
-        }
-
-        .social-link i {
-            margin-right: 15px;
-            font-size: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #eee;
-            border-radius: 10px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary-light);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 15px;
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-submit:hover {
-            background: var(--primary-dark);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        footer {
-            background: var(--primary-dark);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media(max-width: 768px) {
-            .navbar-menu {
-                display: none;
-            }
-
-            .contact-header h2 {
-                font-size: 32px;
-            }
-
-            .contact-wrapper {
-                margin-top: 20px;
-                padding: 20px 5%;
-            }
-
-            .navbar-logo h1 {
-                display: none;
-            }
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            z-index: 1001;
-        }
-
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--primary-light);
-            transition: 0.3s;
-            border-radius: 3px;
-        }
-
-        @media(max-width: 768px) {
-            .menu-toggle {
-                display: flex !important;
-            }
-
-            .navbar-menu {
-                display: none;
-                flex-direction: column;
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                background: var(--primary-dark);
-                padding: 100px 30px;
-                transition: 0.4s ease-in-out;
-                box-shadow: -10px 0 20px rgba(0, 0, 0, 0.4);
-            }
-
-            .navbar-menu.active {
-                display: flex;
-                right: 0;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -375,6 +40,8 @@
                 <li><a href="index.html#etkinlikler" class="navbar-link">Etkinlikler</a></li>
                 <li><a href="index.html#duyurular" class="navbar-link">Duyurular</a></li>
                 <li><a href="index.html#venue" class="navbar-link">Konum</a></li>
+                <li><a href="index.html#galeri" class="navbar-link">Galeri</a></li>
+                <li><a href="index.html#sponsorlarimiz" class="navbar-link">Sponsorlarımız</a></li>
                 <li><a href="iletisim.html" class="navbar-link nav-btn">İletişim & Başvuru</a></li>
             </ul>
         </div>
@@ -432,7 +99,6 @@
                 <div class="form-group">
                     <label>Katılmak İstediğiniz Branş</label>
                     <select name="branch">
-                        <option value="futbol">Futbol Turnuvası</option>
                         <option value="basketbol">Basketbol (3x3)</option>
                         <option value="voleybol">Voleybol Karışık</option>
                         <option value="diger">Diğer / Genel Soru</option>
@@ -453,33 +119,24 @@
     <footer>
         <p>© 2026 Çemberlitaş Sporfest. Tüm Hakları Saklıdır. Çemberlitaş Anadolu Lisesi Yazılım Kulübü tarafından
             yapılmıştır.</p>
+        <img src="image/yazilim.png" alt="Yazılım Kulübü Logosu" class="footer-logo">
     </footer>
-
     <script>
-        window.addEventListener('scroll', function () {
-            const nav = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarMenu = document.querySelector('.navbar-menu');
 
-        const menu = document.querySelector('#mobile-menu');
-        const menuLinks = document.querySelector('.navbar-menu');
+        menuToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
 
-        menu.addEventListener('click', function () {
-            menuLinks.classList.toggle('active');
-            menu.classList.toggle('is-active');
+            menuToggle.classList.toggle('is-active');
         });
 
         document.querySelectorAll('.navbar-link').forEach(link => {
             link.addEventListener('click', () => {
-                menuLinks.classList.remove('active');
+                navbarMenu.classList.remove('active');
             });
         });
     </script>
-
 </body>
 
 </html>
