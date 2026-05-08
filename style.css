@@ -283,6 +283,17 @@ section {
     filter: brightness(1.1);
 }
 
+.gallery img.expanded {
+    position: relative;
+    z-index: 100;
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    border-radius: 15px;
+    max-width: 95vw;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
 .special-font {
     font-family: 'Rock Salt', cursive;
     font-size: 0.8em;
@@ -515,7 +526,31 @@ footer {
     background: var(--primary-dark);
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    width: 50px;
+    opacity: 0.8;
+}
+
+body > .menu-toggle#mobile-menu,
+#venue + .menu-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+}
+
+.navbar .menu-toggle {
+    display: none;
 }
 
 @keyframes fadeInUp {
@@ -663,29 +698,11 @@ body {
         height: 150px;
     }
 
-.gallery img.expanded {
-    position: relative;
-    z-index: 100;
-    transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    border-radius: 15px;
-    max-width: 95vw;
-    margin: 0 auto;
-    object-fit: contain;
-}
-
-@media (max-width: 768px) {
     .gallery img.expanded {
         transform: scale(1.02);
         width: 100%;
         box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     }
-    
-    .gallery {
-        gap: 15px;
-        padding: 10px;
-    }
-}
 
     .contact-wrapper {
         grid-template-columns: 1fr !important;
@@ -710,116 +727,7 @@ body {
     .menu-toggle.is-active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-}
 
-@media (max-width: 480px) {
-    .navbar-logo h1 {
-        font-size: 16px;
-    }
-
-    .special-font {
-        display: none;
-    }
-
-    footer p {
-        font-size: 12px;
-    }
-}
-
-footer {
-    background: var(--primary-dark);
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.footer-logo {
-    width: 50px;
-    opacity: 0.8;
-}
-
-#duyurular .card {
-    padding: 20px;
-    font-size: 14px;
-    background: white;
-    border-radius: 12px;
-}
-
-body>.menu-toggle#mobile-menu,
-#venue+.menu-toggle {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    height: 0 !important;
-    width: 0 !important;
-    position: absolute !important;
-}
-
-.navbar .menu-toggle {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .navbar .menu-toggle {
-        display: flex !important;
-        position: relative;
-        z-index: 1100;
-    }
-
-    .navbar-menu.active {
-        display: flex;
-        height: 100vh;
-        opacity: 1;
-        pointer-events: all;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-header {
-        padding: 100px 20px 40px;
-        text-align: center;
-    }
-
-    .contact-wrapper {
-        grid-template-columns: 1fr !important;
-        width: 100% !important;
-        padding: 10px 15px;
-        margin: 0 auto;
-        gap: 20px;
-    }
-
-    .contact-form, .contact-info {
-        width: 100% !important;
-        padding: 20px;
-        border-radius: 15px;
-    }
-
-    .form-group input, 
-    .form-group select, 
-    .form-group textarea {
-        width: 100% !important;
-        font-size: 16px;
-        padding: 12px;
-    }
-
-    .btn-submit {
-        width: 100%;
-        padding: 15px;
-        font-size: 18px;
-    }
-
-    .info-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-}
-@media (max-width: 768px) {
     .contact-header {
         padding: 100px 20px 20px;
         text-align: center;
@@ -850,15 +758,15 @@ body>.menu-toggle#mobile-menu,
         gap: 25px;
     }
 
-    .contact-form, 
+    .contact-form,
     .contact-info {
         width: 100% !important;
         padding: 20px !important;
         border-radius: 15px;
     }
 
-    .form-group input, 
-    .form-group select, 
+    .form-group input,
+    .form-group select,
     .form-group textarea {
         width: 100% !important;
         max-width: 100%;
@@ -882,10 +790,22 @@ body>.menu-toggle#mobile-menu,
 }
 
 @media (max-width: 480px) {
+    .navbar-logo h1 {
+        font-size: 16px;
+    }
+
+    .special-font {
+        display: none;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+
     .contact-header h2 {
         font-size: 22px !important;
     }
-    
+
     .contact-header {
         padding-top: 90px;
     }
