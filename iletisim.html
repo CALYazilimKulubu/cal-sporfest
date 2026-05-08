@@ -123,22 +123,6 @@
             yapılmıştır.</p>
         <img src="image/yazilim.png" alt="Yazılım Kulübü Logosu" class="footer-logo">
     </footer>
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navbarMenu = document.querySelector('.navbar-menu');
-
-        menuToggle.addEventListener('click', () => {
-            navbarMenu.classList.toggle('active');
-
-            menuToggle.classList.toggle('is-active');
-        });
-
-        document.querySelectorAll('.navbar-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navbarMenu.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 
 </html>

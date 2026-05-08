@@ -1,39 +1,78 @@
-function scrollToSection(id) {
-    const element = document.getElementById(id);
-    if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbarMenu = document.querySelector('.navbar-menu');
+    const navLinks = document.querySelectorAll('.navbar-link');
+
+    if (menuToggle && navbarMenu) {
+        menuToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            menuToggle.classList.toggle('is-active');
+
+            if (navbarMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarMenu.classList.remove('active');
+                menuToggle.classList.remove('is-active');
+                document.body.style.overflow = 'auto';
+            });
+        });
     }
-}
 
-const targetDate = new Date("May 12, 2026 09:00:00").getTime();
+    const images = document.querySelectorAll('.gallery img');
 
-const countdown = setInterval(function () {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
+    images.forEach(img => {
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            if (img.classList.contains('expanded')) {
+                img.classList.remove('expanded');
+            } else {
+                images.forEach(i => i.classList.remove('expanded'));
+                img.classList.add('expanded');
+            }
+        });
+    });
 
+    document.addEventListener('click', () => {
+        images.forEach(img => img.classList.remove('expanded'));
+    });
+
+    const targetDate = new Date("May 12, 2026 09:00:00").getTime();
     const dEl = document.getElementById("days");
     const hEl = document.getElementById("hours");
     const mEl = document.getElementById("minutes");
     const sEl = document.getElementById("seconds");
 
-    if (dEl && hEl && mEl && sEl) {
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    if (dEl) {
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
 
-        dEl.innerHTML = days < 10 ? "0" + days : days;
-        hEl.innerHTML = hours < 10 ? "0" + hours : hours;
-        mEl.innerHTML = minutes < 10 ? "0" + minutes : minutes;
-        sEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
-    }
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector(".countdown-container").innerHTML = "Etkinlik Başladı!";
+                return;
+            }
 
-    if (distance < 0) {
-        clearInterval(countdown);
-        const container = document.querySelector(".countdown-container");
-        if (container) container.innerHTML = "Etkinlik Başladı!";
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            dEl.innerHTML = days.toString().padStart(2, '0');
+            hEl.innerHTML = hours.toString().padStart(2, '0');
+            mEl.innerHTML = minutes.toString().padStart(2, '0');
+            sEl.innerHTML = seconds.toString().padStart(2, '0');
+        }, 1000);
     }
-}, 1000);
+});
 
 window.addEventListener('scroll', function () {
     const nav = document.querySelector('.navbar');
@@ -45,21 +84,3 @@ window.addEventListener('scroll', function () {
         }
     }
 });
-
-const menu = document.querySelector('#mobile-menu');
-const menuLinks = document.querySelector('.navbar-menu');
-const navLinks = document.querySelectorAll('.navbar-link');
-
-if (menu && menuLinks) {
-    menu.addEventListener('click', function () {
-        menu.classList.toggle('is-active');
-        menuLinks.classList.toggle('active');
-    });
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('is-active');
-            menuLinks.classList.remove('active');
-        });
-    });
-}
