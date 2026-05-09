@@ -10,7 +10,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Seguo UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -139,7 +139,7 @@ body {
     margin-bottom: 20px;
     animation: fadeInUp 1s ease;
     color: white;
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Ga Maamli', cursive;
 }
 
 .countdown-container {
@@ -295,7 +295,7 @@ section {
 }
 
 .special-font {
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Ga Maamli', cursive;
     font-size: 0.8em;
     color: var(--primary-light);
 }
@@ -315,8 +315,8 @@ section {
 }
 
 .contact-header h2 {
-    font-size: 48px;
-    font-family: 'Rock Salt', cursive;
+    font-size: 72px;
+    font-family: 'Ga Maamli', cursive;
     animation: fadeInUp 1s ease;
 }
 
