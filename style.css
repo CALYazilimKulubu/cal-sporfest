@@ -135,11 +135,18 @@ body {
 }
 
 .hero-content h2 {
-    font-size: 60px;
+    font-size: 70px;
     margin-bottom: 20px;
     animation: fadeInUp 1s ease;
     color: white;
-    font-family: 'Ga Maamli', cursive;
+    font-family: 'GaMaamli', cursive;
+}
+
+@font-face {
+    font-family: "GaMaamli";
+    src: url("./GaMaamli-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 .countdown-container {
@@ -295,7 +302,7 @@ section {
 }
 
 .special-font {
-    font-family: 'Ga Maamli', cursive;
+    font-family: 'GaMaamli', cursive;
     font-size: 0.8em;
     color: var(--primary-light);
 }
@@ -316,7 +323,7 @@ section {
 
 .contact-header h2 {
     font-size: 72px;
-    font-family: 'Ga Maamli', cursive;
+    font-family: 'GaMaamli', cursive;
     animation: fadeInUp 1s ease;
 }
 
@@ -604,7 +611,7 @@ body {
         left: 0;
         width: 100%;
         height: 0;
-        background: rgba(0, 0, 0, 0.98);
+        background: rgba(10, 2, 50, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         padding: 0;
