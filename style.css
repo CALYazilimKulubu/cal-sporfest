@@ -294,7 +294,7 @@ section {
     position: relative;
     z-index: 100;
     transform: scale(1.05);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     border-radius: 15px;
     max-width: 95vw;
     margin: 0 auto;
@@ -530,6 +530,7 @@ section {
 }
 
 footer {
+    flex-shrink: 0;
     background: var(--primary-dark);
     color: white;
     text-align: center;
@@ -545,8 +546,8 @@ footer {
     opacity: 0.8;
 }
 
-body > .menu-toggle#mobile-menu,
-#venue + .menu-toggle {
+body>.menu-toggle#mobile-menu,
+#venue+.menu-toggle {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -708,7 +709,7 @@ body {
     .gallery img.expanded {
         transform: scale(1.02);
         width: 100%;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
 
     .contact-wrapper {
@@ -816,4 +817,85 @@ body {
     .contact-header {
         padding-top: 90px;
     }
+}
+
+.program-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.program-card {
+    background-color: #e5e5e5a7;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 25px;
+    width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    border-color: #0f1470;
+}
+
+.card-header h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.location {
+    font-size: 0.8rem;
+    color: #000000;
+    float: right;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.schedule-list {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule-list li {
+    padding: 15px 0;
+    border-bottom: 1px dashed #444;
+    font-size: 0.95rem;
+    color: #000000;
+}
+
+.schedule-list li span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.schedule-list li:last-child {
+    border-bottom: none;
+}
+
+.map-frame {
+    background-color: #3576a141;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.map-header {
+    color: #3d8ea6;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.map-frame iframe {
+    border-radius: 15px;
+    display: block;
 }

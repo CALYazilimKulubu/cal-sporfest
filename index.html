@@ -9,10 +9,43 @@
     <script src="script.js"></script>
 
     <link rel="icon" type="image/png" href="image/sporfest.jpg">
-
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
+
+    <script>
+        function patlat() {
+            var end = Date.now() + (10 * 1000);
+
+            var colors = ['#0000ff', '#ffffff'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.8 },
+                    colors: colors,
+                    zIndex: 99999
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.8 },
+                    colors: colors,
+                    zIndex: 99999
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+        setTimeout(patlat, 1000);
+    </script>
+
     <nav class="navbar">
         <div class="navbar-container">
             <div class="navbar-logo">
@@ -36,153 +69,288 @@
                 <li><a href="#venue" class="navbar-link">Konum</a></li>
                 <li><a href="#galeri" class="navbar-link">Galeri</a></li>
                 <li><a href="#sponsorlarimiz" class="navbar-link">Sponsorlarımız</a></li>
+                <li><a href="#kurallar" class="navbar-link">Etkinlik Kuralları</a></li>
                 <li><a href="iletisim.html" class="navbar-link nav-btn">İletişim & Başvuru</a></li>
             </ul>
         </div>
     </nav>
+    <main>
+        <div class="hero" id="home">
+            <div class="hero-content">
+                <h2>Sporfest'26 Başlıyor</h2>
+                <p>Enerji, rekabet ve eğlenceye hazır mısınız?</p>
 
-    <div class="hero" id="home">
-        <div class="hero-content">
-            <h2>Sporfest'26 Başlıyor</h2>
-            <p>Enerji, rekabet ve eğlenceye hazır mısınız?</p>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Gün</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Saat</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Dakika</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Saniye</span>
+                    </div>
+                </div>
 
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <span class="countdown-value" id="days">00</span>
-                    <span class="countdown-label">Gün</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="hours">00</span>
-                    <span class="countdown-label">Saat</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="minutes">00</span>
-                    <span class="countdown-label">Dakika</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="seconds">00</span>
-                    <span class="countdown-label">Saniye</span>
-                </div>
+                <a class="btn-primary"
+                    href="https://docs.google.com/forms/d/1NT9Sjd0TlRJAoaBqLtFYGd_i_PxeMe7k7nZr_h0P4dU">
+                    Ziyaretçi Formu
+                </a>
             </div>
-
-           <a class="btn-primary" href="https://docs.google.com/forms/d/1NT9Sjd0TlRJAoaBqLtFYGd_i_PxeMe7k7nZr_h0P4dU">
-            Ziyaretçi Formu
-            </a>
         </div>
-    </div>
 
-    <section id="etkinlikler">
-        <h2 class="section-title">Etkinlikler</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Basketbol</h3>
-                <p>🏀</p>
+        <section id="etkinlikler">
+            <h2 class="section-title">Etkinlikler</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Basketbol</h3>
+                    <p>🏀</p>
+                </div>
+                <div class="card">
+                    <h3>Voleybol</h3>
+                    <p>🏐</p>
+                </div>
+                <div class="card">
+                    <h3>Badminton</h3>
+                    <p>🏸</p>
+                </div>
+                <div class="card">
+                    <h3>Masa Tenisi </h3>
+                    <p>🏓</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Voleybol</h3>
-                <p>🏐</p>
+        </section>
+
+        <div class="venue-background" id="venue">
+            <div class="venue-container">
+                <div class="venue-text-wrapper">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Etkinlik Alanı</h2>
+                    <p><i class="fas fa-school" style="color: var(--accent-gray);"></i> <strong>Çemberlitaş Anadolu
+                            Lisesi</strong></p>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gray);"></i> Emin Sinan, Yeniçeriler
+                        Cad.
+                        & Evkaf Sok., Çemberlitaş, 34126 Fatih/İstanbul</p>
+                    <br>
+                    <p>Tüm turnuvalar ve etkinlikler okul bahçemiz ile spor salonumuzda gerçekleştirilecektir.</p>
+                </div>
+                <div class="venue-map">
+                    <div class="map-frame">
+                        <div class="map-header">
+                            📍 Çemberlitaş Anadolu Lisesi
+                        </div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.788701072628!2d28.970198!3d41.0079978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9972b08a76f%3A0xc16364ef75e2a8c0!2s%C3%87emberlita%C5%9F%20Anadolu%20Lisesi!5e0!3m2!1str!2str!4v1778432822885!5m2!1str!2str"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Badminton</h3>
-                <p>🏸</p>
+
+            <section id="kurallar">
+                <h2 class="section-title">Çemberlitaş Sporfest'26 Kuralları</h2>
+                <div class="program-container">
+
+                    <div class="program-card">
+                        <div class="card-header">
+                            <h3>Genel Etkinlik Kuralları</h3>
+                        </div>
+                        <ul class="schedule-list">
+                            <li>Tüm sporcular maçtan önce lisanslarını ve esame listelerini masa hakemine bildirmek
+                                zorundadır.
+                            </li>
+                            <li>Sporcular mutlaka formayla oynamalıdır.</li>
+                            <li>Spor salonuna en fazla 50 taraftar alınabilir.</li>
+                            <li>Lisanslar ve kimlikler maç süresince takımların yanında bulunmalıdır.</li>
+                            <li>Takımların maç saatinden 20 dk önce Çemberlitaş Anadolu Lisesi'nde bulunmaları
+                                gerekmektedir.
+                            </li>
+                            <li>Oyuncular aktif olarak okulun öğrencisi olmak zorundadır.</li>
+                            <li>Takımların antrenör olarak öğretmen getirmesi zorunludur.</li>
+                            <li>Misafir izleyiciler küfür/hakaret içermediği sürece tezahürat yapabilir.</li>
+                            <li>Herkesin ziyaretçi formunu doldurmuş olması gerekmektedir.</li>
+                            <li>Okul binasına giriş yasaktır. MEB kıyafet yönetmeliği geçerlidir.</li>
+                        </ul>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="card-header">
+                            <h3>Basketbol Kuralları</h3>
+                        </div>
+                        <ul class="schedule-list">
+                            <li><span>Kural:</span> FIBA kuralları geçerlidir.</li>
+                            <li><span>Kadro:</span> Esameye en fazla 15 kişi yazılabilir.</li>
+                            <li><span>Sistem:</span> Maçlar eleme sistemi üzerinden oynanacaktır.</li>
+                            <li><span>Yaş:</span> 01.09.2007 sonrası doğumlu okul sporcuları katılabilir.</li>
+                        </ul>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="card-header">
+                            <h3>Voleybol Kuralları</h3>
+                        </div>
+                        <ul class="schedule-list">
+                            <li><span>Kural:</span> FIVB kuralları geçerlidir.</li>
+                            <li><span>Setler:</span> Kazanılan 2 set üzerinden oynanır. Karar seti 15 sayıdır.</li>
+                            <li><span>Tavan:</span> Oyun içinde top tavana değerse sayı karşı takıma verilir.</li>
+                            <li><span>Kadro:</span> Esameye en fazla 12 kişi yazılabilir.</li>
+                            <li><span>Yaş:</span> 01.09.2007 sonrası doğumlu okul sporcuları katılabilir.</li>
+                        </ul>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="card-header">
+                            <h3>Badminton Kuralları</h3>
+                        </div>
+                        <ul class="schedule-list">
+                            <li><span>Format:</span> Tek set üzerinden; 3 tekli, 2 çiftli maç formatı.</li>
+                            <li><span>Kadro:</span> En fazla 5 kişi (4 asil + 1 yedek).</li>
+                            <li><span>Yedek:</span> Asil oyuncu yoksa yedek oynar, yedek yoksa diskalifiye olunur.</li>
+                            <li><span>Sistem:</span> Lig sistemi üzerinden oynanacaktır.</li>
+                            <li><span>Yaş:</span> Doğum tarihine bakılmaksızın tüm okul sporcuları oynayabilir.</li>
+                        </ul>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="card-header">
+                            <h3>Masa Tenisi Kuralları</h3>
+                        </div>
+                        <ul class="schedule-list">
+                            <li><span>Kural:</span> ITTF kuralları geçerlidir.</li>
+                            <li><span>Kadro:</span> Esameye en fazla 4 kişi yazılabilir.</li>
+                            <li><span>Sistem:</span> Lig sistemi üzerinden oynanacaktır.</li>
+                            <li><span>Yaş:</span> 01.09.2007 sonrası doğumlu okul öğrencileri oynayabilir.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!--
+    <section id="akis">
+        <h2 class="section-title">Program Akışı</h2>
+        <div class="program-container">
+
+            <div class="program-card">
+                <div class="card-header">
+                    <h3>16 Mayıs Genel Akış</h3>
+                    <p class="subtitle">Final Günü</p>
+                </div>
+                <ul class="schedule-list">
+                    <li><span>08:30 - 10:00</span> BAL - Bahçelievler Voleybol Final Maçı</li>
+                    <li><span>09:00 - 11:30</span> Masa Tenisi Yarı Final ve Final Maçları</li>
+                    <li><span>09:15 - 10:00</span> Kahvaltı</li>
+                    <li><span>10:00 - 11:30</span> CAL - BAL Basketbol Final Maçı</li>
+                    <li><span>11:30 - 12:00</span> Öğle Yemeği</li>
+                    <li><span>12:00</span> Ödül Töreni - Kapanış Konuşması</li>
+                </ul>
             </div>
-            <div class="card">
-                <h3>Masa Tenisi </h3>
-                <p>🏓</p>
+
+            <div class="program-card">
+                <div class="card-header">
+                    <h3>Masa Tenisi Programı</h3>
+                    <p class="subtitle">16 Mayıs</p>
+                </div>
+                <ul class="schedule-list">
+                    <li><span>09:00 - 09:30</span> Çapa Fen Lisesi vs Vefa Lisesi</li>
+                    <li><span>09:30 - 10:00</span> Çemberlitaş Anadolu vs Cağaloğlu Anadolu</li>
+                    <li><span>10:30 - 11:00</span> Yan Final Mağlupları (Üçüncülük Maçı)</li>
+                    <li><span>11:00 - 11:30</span> Yan Final Galipleri (Final Maçı)</li>
+                </ul>
             </div>
+
+            <div class="program-card">
+                <div class="card-header">
+                    <h3>Diğer Branşlar</h3>
+                    <p class="subtitle">Yakında Eklenecek</p>
+                </div>
+                <ul class="schedule-list">
+                    <li><span>00:00 –</span> Etkinlik Bilgisi</li>
+                    <li><span>00:00 –</span> Etkinlik Bilgisi</li>
+                    <li><span>00:00 –</span> Etkinlik Bilgisi</li>
+                    <li><span>00:00 –</span> Etkinlik Bilgisi</li>
+                </ul>
+            </div>
+
         </div>
     </section>
+    -->
 
-    <div class="venue-background" id="venue">
-        <div class="venue-container">
-            <div class="venue-text-wrapper">
-                <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Etkinlik Alanı</h2>
-                <p><i class="fas fa-school" style="color: var(--accent-gray);"></i> <strong>Çemberlitaş Anadolu
-                        Lisesi</strong></p>
-                <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gray);"></i> Emin Sinan, Yeniçeriler Cad.
-                    & Evkaf Sok., Çemberlitaş, 34126 Fatih/İstanbul</p>
+            <section id="duyurular">
+                <h2 class="section-title">Duyurular</h2>
+                <div class="card" style="margin-bottom: 15px; border-left: 5px solid var(--primary-light);">
+                    <p>📢 <strong>Geçmiş Etkinlik:</strong> Okulumuzda 14-16 Mayıs 2025 tarihleri arasında Sporfest '25
+                        başarıyla düzenlenmiştir.</p>
+                </div>
+                <div class="card" style="margin-bottom: 15px; border-left: 5px solid var(--primary-light);">
+                    <p>📅 <strong>Gelecek Tarih:</strong> Sporfest '26, 12-15 Mayıs 2026 tarihleri arasında
+                        gerçekleşecektir.
+                    </p>
+                </div>
+            </section>
+
+            <section id="galeri">
+                <h2 class="section-title">Galeri</h2>
+                <div class="gallery">
+                    <img
+                        src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110608_10.jpg">
+                    <img
+                        src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110632_7.jpg">
+                    <img
+                        src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110637_9.jpg">
+                    <img
+                        src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110623_4.jpg">
+                </div>
                 <br>
-                <p>Tüm turnuvalar ve etkinlikler okul bahçemiz ile spor salonumuzda gerçekleştirilecektir.</p>
-            </div>
-            <div class="venue-map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.518129759367!2d28.969848576553835!3d41.00299691974753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9919f96b65d%3A0x6739665f80b91295!2zw4dlbWJlcmxpdGHFnyBBbmFkb2x1IExpc2VzaQ!5e0!3m2!1str!2str!4v1715421000000!5m2!1str!2str"
-                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </div>
-
-    <section id="duyurular">
-        <h2 class="section-title">Duyurular</h2>
-        <div class="card" style="margin-bottom: 15px; border-left: 5px solid var(--primary-light);">
-            <p>📢 <strong>Geçmiş Etkinlik:</strong> Okulumuzda 14-16 Mayıs 2025 tarihleri arasında Sporfest '25
-                başarıyla düzenlenmiştir.</p>
-        </div>
-        <div class="card" style="margin-bottom: 15px; border-left: 5px solid var(--primary-light);">
-            <p>📅 <strong>Gelecek Tarih:</strong> Sporfest '26, 12-15 Mayıs 2026 tarihleri arasında gerçekleşecektir.
-            </p>
-        </div>
-    </section>
-
-    <section id="galeri">
-        <h2 class="section-title">Galeri</h2>
-        <div class="gallery">
-            <img
-                src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110608_10.jpg">
-            <img
-                src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110632_7.jpg">
-            <img
-                src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110637_9.jpg">
-            <img
-                src="https://cemberlitasanadolu.meb.k12.tr/meb_iys_dosyalar/34/10/970257/resimler/2025_05/23110623_4.jpg">
-        </div>
-        <br>
-        <a href="https://drive.google.com/drive/folders/1kJAMzsdRzxwLyVEPqFNF77jvyxhaEATr">2024-2025 Çemberlitaş
-            Sporfest Google Drive Linki</a>
-    </section>
+                <a href="https://drive.google.com/drive/folders/1kJAMzsdRzxwLyVEPqFNF77jvyxhaEATr">2024-2025 Çemberlitaş
+                    Sporfest Google Drive Linki</a>
+            </section>
 
 
-    <!-- SPONSORLUK-->
-    <section id="sponsorlarimiz">
-        <h2 class="section-title">Sponsorlarımız</h2>
-        <div class="slider">
+            <!-- SPONSORLUK-->
+            <section id="sponsorlarimiz">
+                <h2 class="section-title">Sponsorlarımız</h2>
+                <div class="slider">
 
-            <div class="slide-track">
-                <div class="slide"><img src="image/1.png" alt="" /></div>
-                <div class="slide"><img src="image/2.png" alt="" /></div>
-                <div class="slide"><img src="image/3.png" alt="" /></div>
-                <div class="slide"><img src="image/4.png" alt="" /></div>
-                <div class="slide"><img src="image/5.png" alt="" /></div>
-                <div class="slide"><img src="image/6.png" alt="" /></div>
-                <div class="slide"><img src="image/7.png" alt="" /></div>
-                <div class="slide"><img src="image/8.png" alt="" /></div>
-                <div class="slide"><img src="image/9.png" alt="" /></div>
-                <div class="slide"><img src="image/10.png" alt="" /></div>
-                <div class="slide"><img src="image/11.png" alt="" /></div>
-                <div class="slide"><img src="image/12.png" alt="" /></div>
-                <div class="slide"><img src="image/13.png" alt="" /></div>
+                    <div class="slide-track">
+                        <div class="slide"><img src="image/1.png" alt="" /></div>
+                        <div class="slide"><img src="image/2.png" alt="" /></div>
+                        <div class="slide"><img src="image/3.png" alt="" /></div>
+                        <div class="slide"><img src="image/4.png" alt="" /></div>
+                        <div class="slide"><img src="image/5.png" alt="" /></div>
+                        <div class="slide"><img src="image/6.png" alt="" /></div>
+                        <div class="slide"><img src="image/7.png" alt="" /></div>
+                        <div class="slide"><img src="image/8.png" alt="" /></div>
+                        <div class="slide"><img src="image/9.png" alt="" /></div>
+                        <div class="slide"><img src="image/10.png" alt="" /></div>
+                        <div class="slide"><img src="image/11.png" alt="" /></div>
+                        <div class="slide"><img src="image/12.png" alt="" /></div>
+                        <div class="slide"><img src="image/13.png" alt="" /></div>
 
-                <div class="slide"><img src="image/1.png" alt="" /></div>
-                <div class="slide"><img src="image/2.png" alt="" /></div>
-                <div class="slide"><img src="image/3.png" alt="" /></div>
-                <div class="slide"><img src="image/4.png" alt="" /></div>
-                <div class="slide"><img src="image/5.png" alt="" /></div>
-                <div class="slide"><img src="image/6.png" alt="" /></div>
-                <div class="slide"><img src="image/7.png" alt="" /></div>
-                <div class="slide"><img src="image/8.png" alt="" /></div>
-                <div class="slide"><img src="image/9.png" alt="" /></div>
-                <div class="slide"><img src="image/10.png" alt="" /></div>
-                <div class="slide"><img src="image/11.png" alt="" /></div>
-                <div class="slide"><img src="image/12.png" alt="" /></div>
-                <div class="slide"><img src="image/13.png" alt="" /></div>
+                        <div class="slide"><img src="image/1.png" alt="" /></div>
+                        <div class="slide"><img src="image/2.png" alt="" /></div>
+                        <div class="slide"><img src="image/3.png" alt="" /></div>
+                        <div class="slide"><img src="image/4.png" alt="" /></div>
+                        <div class="slide"><img src="image/5.png" alt="" /></div>
+                        <div class="slide"><img src="image/6.png" alt="" /></div>
+                        <div class="slide"><img src="image/7.png" alt="" /></div>
+                        <div class="slide"><img src="image/8.png" alt="" /></div>
+                        <div class="slide"><img src="image/9.png" alt="" /></div>
+                        <div class="slide"><img src="image/10.png" alt="" /></div>
+                        <div class="slide"><img src="image/11.png" alt="" /></div>
+                        <div class="slide"><img src="image/12.png" alt="" /></div>
+                        <div class="slide"><img src="image/13.png" alt="" /></div>
+                    </div>
+                </div>
+            </section>
 
-
-            </div>
-        </div>
-    </section>
-
+    </main>
     <footer>
         <p>© 2026 Çemberlitaş Sporfest. Tüm Hakları Saklıdır. Çemberlitaş Anadolu Lisesi Yazılım Kulübü tarafından
             yapılmıştır.</p>
