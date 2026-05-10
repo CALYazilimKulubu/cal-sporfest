@@ -823,7 +823,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    padding: 40px;
+    padding: 20px;
     flex-wrap: wrap;
 }
 
@@ -832,8 +832,10 @@ body {
     border: 1px solid #333;
     border-radius: 15px;
     padding: 25px;
-    width: 350px;
+    width: 350px; 
+    max-width: 100%;
     transition: transform 0.3s ease;
+    box-sizing: border-box;
 }
 
 .program-card:hover {
@@ -844,6 +846,17 @@ body {
 .card-header h3 {
     font-size: 1.1rem;
     margin-bottom: 5px;
+}
+
+@media (max-width: 480px) {
+    .program-container {
+        padding: 10px;
+    }
+    
+    .program-card {
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
 .location {

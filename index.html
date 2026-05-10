@@ -13,38 +13,37 @@
 </head>
 
 <body>
-
     <script>
-        function patlat() {
-            var end = Date.now() + (10 * 1000);
+    function patlat() {
+        var end = Date.now() + (3 * 1000); 
 
-            var colors = ['#0000ff', '#ffffff'];
+        var colors = ['#0000ff', '#ffffff'];
 
-            (function frame() {
-                confetti({
-                    particleCount: 3,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0, y: 0.8 },
-                    colors: colors,
-                    zIndex: 99999
-                });
-                confetti({
-                    particleCount: 3,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1, y: 0.8 },
-                    colors: colors,
-                    zIndex: 99999
-                });
+        (function frame() {
+            confetti({
+                particleCount: 3,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0, y: 0.8 },
+                colors: colors,
+                zIndex: 99999
+            });
+            confetti({
+                particleCount: 3,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1, y: 0.8 },
+                colors: colors,
+                zIndex: 99999
+            });
 
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            }());
-        }
-        setTimeout(patlat, 1000);
-    </script>
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }
+    setTimeout(patlat, 2000); 
+</script>
 
     <nav class="navbar">
         <div class="navbar-container">
@@ -74,7 +73,7 @@
             </ul>
         </div>
     </nav>
-    <main>
+    <main style="flex: 1 0 auto;">
         <div class="hero" id="home">
             <div class="hero-content">
                 <h2>Sporfest'26 Başlıyor</h2>
