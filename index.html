@@ -14,36 +14,36 @@
 
 <body>
     <script>
-    function patlat() {
-        var end = Date.now() + (3 * 1000); 
+        function patlat() {
+            var end = Date.now() + (3 * 1000);
 
-        var colors = ['#0000ff', '#ffffff'];
+            var colors = ['#0000ff', '#ffffff'];
 
-        (function frame() {
-            confetti({
-                particleCount: 3,
-                angle: 60,
-                spread: 55,
-                origin: { x: 0, y: 0.8 },
-                colors: colors,
-                zIndex: 99999
-            });
-            confetti({
-                particleCount: 3,
-                angle: 120,
-                spread: 55,
-                origin: { x: 1, y: 0.8 },
-                colors: colors,
-                zIndex: 99999
-            });
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.8 },
+                    colors: colors,
+                    zIndex: 99999
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.8 },
+                    colors: colors,
+                    zIndex: 99999
+                });
 
-            if (Date.now() < end) {
-                requestAnimationFrame(frame);
-            }
-        }());
-    }
-    setTimeout(patlat, 2000); 
-</script>
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+        setTimeout(patlat, 2000); 
+    </script>
 
     <nav class="navbar">
         <div class="navbar-container">
@@ -355,6 +355,122 @@
             yapılmıştır.</p>
         <img src="image/yazilim.png" alt="Yazılım Kulübü Logosu" class="footer-logo">
     </footer>
+
+
+    <div id="eventModal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <h2>📅 Günün Akışı (12 Mayıs)</h2>
+            </div>
+            <div class="modal-body">
+                <div class="timeline-header">
+                    <span>Saat</span>
+                    <span>Branş</span>
+                    <span>Eşleşme / Etkinlik</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">08:30</span>
+                    <span class="branch">-</span>
+                    <span class="match">Kahvaltı</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">08:45</span>
+                    <span class="branch">-</span>
+                    <span class="match">Açılış Konuşması</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">09:00</span>
+                    <span class="tag badminton">Erkek Badminton</span>
+                    <span class="match">Şehremini Anadolu Lisesi vs Galatasaray Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">09:00</span>
+                    <span class="tag badminton">Kız Badminton</span>
+                    <span class="match">Şehremini Anadolu Lisesi vs Galatasaray Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">09:30</span>
+                    <span class="tag tabletennis">Erkek Masa Tenisi</span>
+                    <span class="match">Cağaloğlu Anadolu Lisesi vs Vefa Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">09:30</span>
+                    <span class="tag tabletennis">Kız Masa Tenisi</span>
+                    <span class="match">İstanbul Atatürk Anadolu Lisesi vs Cağaloğlu Anadolu Lisesi</span>
+                </div>
+
+
+                <div class="timeline-item">
+                    <span class="time">10:00</span>
+                    <span class="tag badminton">Kız Badminton</span>
+                    <span class="match">Şehremini Anadolu Lisesi vs Çemberlitaş Anadolu Lisesi Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">10:00</span>
+                    <span class="tag badminton">Erkek Badminton</span>
+                    <span class="match">Uluslararası Fatih Sultan Mehmet Anadolu İmam Hatip Lisesi vs Galatasaray
+                        Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">10:30</span>
+                    <span class="tag tabletennis">Erkek Masa Tenisi</span>
+                    <span class="match">Cağaloğlu Anadolu Lisesi vs Çemberlitaş Anadolu Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">11:00</span>
+                    <span class="tag volleyball">Voleybol</span>
+                    <span class="match">Sultanahmet Mesleki ve Teknik Anadolu Lisesi vs Galatasaray Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">10:30</span>
+                    <span class="tag tabletennis">Kız Masa Tenisi</span>
+                    <span class="match">İstanbul Atatürk Anadolu Lisesi vs Çemberlitaş Anadolu Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">11:30</span>
+                    <span class="tag tabletennis">Erkek Masa Tenisi</span>
+                    <span class="match">Samiha Ayverdi Anadolu Lisesi vs Çemberlitaş Anadolu Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">12:15</span>
+                    <span class="branch">-</span>
+                    <span class="match">Öğle Yemeği</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">12:30</span>
+                    <span class="tag volleyball">Voleybol</span>
+                    <span class="match">Beşiktaş Atatürk Anadolu Lisesi vs Pertevniyal Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">14:00</span>
+                    <span class="tag basketball">Basketbol</span>
+                    <span class="match">Çemberlitaş Anadolu Lisesi vs Pertevniyal Lisesi</span>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="time">15:30</span>
+                    <span class="tag basketball">Basketbol</span>
+                    <span class="match">Vefa Lisesi vs İTÜ Mesleki ve Teknik Anadolu Lİsesi</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
